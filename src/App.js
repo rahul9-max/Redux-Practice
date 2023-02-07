@@ -1,15 +1,17 @@
-import './App.css';
-import Login from './component/Login';
-import Profile from './component/Profile';
-import ChangeColor from './component/ChangeColor';
+import React from 'react';
+import Form from './components/Form';
+import Logout from './components/Logout';
+import  selectHello  from './components/Userslice';
+import { useSelector } from 'react-redux';
 
 function App() {
+  const good=useSelector((state)=>state.user.hello)
+  // const good=useSelector(selectHello)
   return (
-    <div className="App">
-      <Profile/>
-      <Login/>
-      <ChangeColor/>
-    </div>
+    <>
+{good ? <Logout/> : <Form/>}
+{/* <Form/> */}
+    </>
   );
 }
 
